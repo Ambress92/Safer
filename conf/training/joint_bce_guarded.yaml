@@ -1,0 +1,19 @@
+hidden_dims:
+  - 64
+  - 32
+dropout: 0.2
+lr: 0.001
+patience: 10
+max_epochs: 200
+batch_size: 256
+max_grad_norm: 1.0
+weight_decay: 0.0005
+bce_warmup_epochs: 0
+joint_checkpoint_mode: bce_guarded_fairness
+joint_bce_guard_rel_tol: 0.05
+joint_bce_guard_min_lambd: 0.0001
+fairness_ramp_epochs: 0
+fairness_ramp_shape: linear
+fairness_ramp_min_lambd: 0.0
+lr_reduce_factor: 0.1
+min_lr: 0.00001

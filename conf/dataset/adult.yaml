@@ -1,0 +1,3 @@
+_target_: asbr.data.AdultDataset
+name: adult
+intersection_level: 3

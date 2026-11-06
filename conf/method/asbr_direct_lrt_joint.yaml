@@ -1,0 +1,26 @@
+_target_: asbr.methods.asbr.ASBRMethod
+name: ASBR-DirectLRT-Joint
+trainer: joint
+loss_type: lrt
+lambd: ${.asbr.lambd}   # mirrors asbr.lambd so config.yaml sweep subdir works uniformly
+
+asbr:
+  alpha: 0.05
+  lambd: 1.0
+  n_tilde: 30
+  kappa: 0.5
+  epsilon: 1.0e-8
+  fairness_metric: eo
+  loss_shape: direct_lrt_excess
+  direct_tau: 0.01
+  direct_abs_eps: 0.001
+  direct_detach_se: true
+  direct_pred_temperature: 0.05
+  direct_threshold: 0.5
+  direct_lrt_detach: true
+  direct_lrt_sqrt_min: 1.0e-4
+  direct_lrt_se_min: 0.0
+  direct_lrt_se_max: 1.0
+  dense_tail_weight: 0.003
+  dense_tail_shape: lrt
+  use_size_weight: false

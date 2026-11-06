@@ -1,0 +1,7 @@
+_target_: asbr.methods.expgrad.ExponGradMethod
+name: ExponGrad-EO
+epsilon: 0.02
+lambd: ${.epsilon}
+max_iter: 50
+nu: 1.0e-6
+constraint: eo

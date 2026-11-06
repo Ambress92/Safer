@@ -1,0 +1,18 @@
+_target_: asbr.methods.asbr.ASBRMethod
+name: ASBR-LRT-Gated-EO-TwoPhase
+trainer: two_phase
+loss_type: lrt
+lambd: ${.asbr.lambd}
+
+asbr:
+  alpha: 0.05
+  lambd: 100.0
+  n_tilde: 30
+  kappa: 0.5
+  epsilon: 1.0e-8
+  fairness_metric: eo
+  use_hinge: true
+  use_hybrid: true
+  use_size_weight: true
+  hinge_alpha: null   # override to set a different hinge threshold (e.g. 1.0 → z_hinge=0)
+  gate_alpha: null    # override to set a different gate threshold

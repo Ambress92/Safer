@@ -1,0 +1,7 @@
+_target_: asbr.methods.aif360_expgrad.AIF360ExponGradMLPMethod
+name: AIF360-ExponGrad-MLP
+mlp_max_epochs: 20
+eps: 0.01
+max_iter: 50
+eta0: 2.0
+drop_prot_attr: true

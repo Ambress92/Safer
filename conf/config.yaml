@@ -1,0 +1,29 @@
+defaults:
+  - _self_
+  - dataset: adult
+  - method: asbr_lrt_joint
+  - training: default
+  - override hydra/launcher: joblib
+
+# Data splitting
+n_splits: 10
+test_size: 0.5
+val_size: 0.1
+n_seeds: 3
+seed_offset: 0
+force_rerun: false  # if true, ignore and overwrite an existing results.csv
+save_predictions: false  # if true, write test-set predictions.csv in the Hydra output dir
+
+# SAFT assessment
+saft_alpha: 0.05
+saft_n_tilde: 30
+saft_correction: bh  # none, bonferroni, or bh (Benjamini-Hochberg)
+
+hydra:
+  job:
+    chdir: true
+  run:
+    dir: outputs/${dataset.name}/${method.name}/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: multirun/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${dataset.name}/${method.name}/lambd=${method.lambd}

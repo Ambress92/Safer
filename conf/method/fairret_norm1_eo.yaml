@@ -1,0 +1,4 @@
+_target_: asbr.methods.fairret_method.FairretNorm1Method
+name: fairret-norm1-eo
+lambd: 1.0
+fairness_metric: eo

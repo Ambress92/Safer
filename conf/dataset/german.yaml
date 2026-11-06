@@ -1,0 +1,3 @@
+_target_: asbr.data.GermanDataset
+name: german
+intersection_level: 3

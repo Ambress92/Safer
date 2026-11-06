@@ -1,0 +1,4 @@
+_target_: asbr.methods.fairret_method.FairretNorm2Method
+name: fairret-norm2
+lambd: 1.0
+fairness_metric: sp  # "sp" (PositiveRate) or "eo" (TruePositiveRate)

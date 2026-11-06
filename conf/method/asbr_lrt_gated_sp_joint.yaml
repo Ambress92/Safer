@@ -1,0 +1,34 @@
+_target_: asbr.methods.asbr.ASBRMethod
+name: ASBR-LRT-Gated-SP-Joint
+trainer: joint
+loss_type: lrt
+lambd: ${.asbr.lambd}   # mirrors asbr.lambd so config.yaml sweep subdir works uniformly
+
+asbr:
+  alpha: 0.05
+  lambd: 20.0        # SP² scale: effective range ~1–100
+  n_tilde: 30
+  kappa: 0.5         # sigmoid steepness; higher → sharper gate (less attenuation)
+  epsilon: 1.0e-8
+  # Fairness metric: "sp" (Statistical Parity, default) or "eo" (Equal Opportunity).
+  # Override from CLI: method.asbr.fairness_metric=eo
+  fairness_metric: sp
+  use_hinge: true
+  use_sp_magnitude: true
+  use_hybrid: false
+  use_size_weight: false
+  gate_alpha: null         # null → uses alpha; controls conservatism (higher = less strict)
+  use_rms_aggregation: false  # set true for RMS aggregation (self-normalizing gradient)
+  use_overall_reference: false  # set true to use (metric_S - metric_overall) instead of (metric_S - metric_Sbar)
+  dense_tail_weight: 0.0
+  dense_tail_shape: lrt       # "lrt", "metric", or "normalized_metric"
+  loss_shape: lrt_hinge       # "lrt_hinge" or "direct_excess" (direct MSEE surrogate)
+  direct_tau: 0.01
+  direct_abs_eps: 0.001
+  direct_detach_se: true
+  direct_pred_temperature: null  # set e.g. 0.05 to approximate hard thresholded MSEE
+  direct_threshold: 0.5
+  direct_lrt_detach: true        # false is diagnostic only (sign-reversal risk)
+  direct_lrt_sqrt_min: 1.0e-4   # floor for sqrt(Lambda) in SE_eff ratio
+  direct_lrt_se_min: 0.0
+  direct_lrt_se_max: 1.0

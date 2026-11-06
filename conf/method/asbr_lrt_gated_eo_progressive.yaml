@@ -1,0 +1,29 @@
+_target_: asbr.methods.asbr.ProgressiveASBRMethod
+name: ASBR-LRT-Gated-EO-Progressive
+loss_type: lrt
+bce_weight: 0.0   # Phase 2 pure fairness gradient (identical to two-phase Phase 2)
+reset_to_phase1: false  # true = independent Phase 2 per λ (equiv. to TwoPhase); false = warm-start
+
+# Lambda schedule for Phase 2 progressive training.
+# One Pareto snapshot is produced per value in a single training run.
+lambda_schedule:
+  - 1
+  - 5
+  - 10
+  - 20
+  - 50
+  - 100
+  - 200
+  - 500
+
+asbr:
+  alpha: 0.05
+  n_tilde: 30
+  kappa: 0.5
+  epsilon: 1.0e-8
+  fairness_metric: eo       # Equal Opportunity (TPR disparity)
+  use_hinge: true
+  use_sp_magnitude: true    # Gated-SP formulation: SP² magnitude × sigmoid(LRT) gate
+  use_hybrid: false
+  use_size_weight: true
+  gate_alpha: null

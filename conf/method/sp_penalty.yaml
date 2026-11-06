@@ -1,0 +1,3 @@
+_target_: asbr.methods.sp_penalty.SPPenaltyMethod
+name: SP-Penalty
+lambd: 100.0

@@ -1,0 +1,13 @@
+# @package _global_
+#
+# Main paper comparison: run all methods on a dataset.
+# Usage:
+#   python -m asbr.experiments.run_hydra --multirun \
+#       +experiment=main_comparison \
+#       method=erm,expgrad,expgrad_mlp,sp_penalty,asbr_wald,asbr_lrt,asbr_wald_joint,asbr_lrt_joint
+
+defaults:
+  - override /training: default
+
+n_folds: 5
+n_seeds: 2

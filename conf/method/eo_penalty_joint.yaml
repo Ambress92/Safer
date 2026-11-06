@@ -1,0 +1,7 @@
+_target_: asbr.methods.sp_penalty.EOPenaltyMethod
+name: EO-Penalty-Joint
+trainer: joint
+lambd: 100.0
+asbr:
+  lambd: ${..lambd}
+  use_size_weight: false

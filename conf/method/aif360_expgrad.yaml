@@ -1,0 +1,6 @@
+_target_: asbr.methods.aif360_expgrad.AIF360ExponGradMethod
+name: AIF360-ExponGrad
+eps: 0.01
+max_iter: 50
+eta0: 2.0
+drop_prot_attr: true

@@ -1,0 +1,14 @@
+# @package _global_
+#
+# Lambda sweep for ASBR methods.
+# Usage:
+#   python -m asbr.experiments.run_hydra --multirun \
+#       +experiment=lambda_sweep \
+#       method=asbr_wald,asbr_lrt,asbr_wald_joint,asbr_lrt_joint \
+#       method.asbr.lambd=0.1,0.5,1.0,5.0,10.0
+
+defaults:
+  - override /training: default
+
+n_folds: 5
+n_seeds: 2

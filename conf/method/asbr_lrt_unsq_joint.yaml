@@ -1,0 +1,17 @@
+_target_: asbr.methods.asbr.ASBRMethod
+name: ASBR-LRT-Unsq-Joint
+trainer: joint
+loss_type: lrt
+lambd: ${.asbr.lambd}   # mirrors asbr.lambd so config.yaml sweep subdir works uniformly
+
+asbr:
+  alpha: 0.05
+  lambd: 0.3
+  n_tilde: 30
+  kappa: 0.5
+  epsilon: 1.0e-8
+  fairness_metric: sp
+  use_hinge: true
+  use_hybrid: true
+  use_size_weight: true
+  use_squared_hinge: false   # linear hinge — MSPE-aligned (vs quadratic default)

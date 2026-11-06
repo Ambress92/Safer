@@ -1,0 +1,18 @@
+_target_: asbr.methods.asbr.ASBRMethod
+name: ASBR-LRT
+trainer: two_phase
+loss_type: lrt
+lambd: ${.asbr.lambd}   # mirrors asbr.lambd so config.yaml sweep subdir works uniformly
+
+asbr:
+  alpha: 0.05
+  lambd: 0.1
+  n_tilde: 30
+  kappa: 0.5
+  epsilon: 1.0e-8
+  # Fairness metric: "sp" (Statistical Parity, default) or "eo" (Equal Opportunity).
+  # Override from CLI: method.asbr.fairness_metric=eo
+  fairness_metric: sp
+  use_hinge: true
+  use_hybrid: true
+  use_size_weight: true

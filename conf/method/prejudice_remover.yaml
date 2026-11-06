@@ -1,0 +1,4 @@
+_target_: asbr.methods.prejudice_remover.PrejudiceRemoverMethod
+name: PrejudiceRemover
+lambd: 1.0
+eta: ${.lambd}   # lambd aliases eta so sweep subdirs and plotting stay uniform

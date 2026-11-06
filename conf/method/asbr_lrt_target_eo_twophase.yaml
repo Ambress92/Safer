@@ -1,0 +1,18 @@
+_target_: asbr.methods.asbr.TargetProgressiveASBRMethod
+name: ASBR-LRT-Target-EO-TwoPhase
+loss_type: lrt
+target_reduction: 0.5
+lambda_min: 0.01
+lambda_max: 500.0
+lambda_multiplier: 1.5
+msee_patience: 4
+
+asbr:
+  alpha: 0.05
+  n_tilde: 30
+  kappa: 0.5
+  epsilon: 1.0e-8
+  fairness_metric: eo
+  use_hinge: true
+  use_hybrid: true
+  use_size_weight: true

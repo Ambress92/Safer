@@ -1,0 +1,27 @@
+_target_: asbr.methods.asbr.ASBRMethod
+name: ASBR-LRT-Gated-SP-Sharp
+trainer: joint
+loss_type: lrt
+lambd: ${.asbr.lambd}   # mirrors asbr.lambd so config.yaml sweep subdir works uniformly
+
+# Sharp-gate variant: kappa=10 makes the sigmoid near-binary.
+# Groups above the gate threshold are penalized with gate≈1 (no attenuation).
+# Groups below the threshold are suppressed with gate≈0 (not penalized).
+# gate_alpha controls the conservatism spectrum:
+#   0.05 (default): standard significance gate (z_gate=1.96)
+#   0.20: moderate gate (z_gate=1.28) — penalizes borderline groups too
+#   0.50: permissive gate (z_gate=0.67) — approaches SP-Penalty
+asbr:
+  alpha: 0.05
+  lambd: 20.0        # SP² scale: effective range ~1–100
+  n_tilde: 30
+  kappa: 10.0        # near-binary gate — no attenuation for significant groups
+  epsilon: 1.0e-8
+  # Fairness metric: "sp" (Statistical Parity, default) or "eo" (Equal Opportunity).
+  # Override from CLI: method.asbr.fairness_metric=eo
+  fairness_metric: sp
+  use_hinge: true
+  use_sp_magnitude: true
+  use_hybrid: false
+  use_size_weight: false
+  gate_alpha: 0.05   # standard significance gate threshold

@@ -1,0 +1,4 @@
+_target_: hydra_plugins.hydra_joblib_launcher.joblib_launcher.JoblibLauncher
+n_jobs: 40
+prefer: processes
+verbose: 1

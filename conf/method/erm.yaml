@@ -1,0 +1,3 @@
+_target_: asbr.methods.erm.ERMMethod
+name: ERM
+lambd: 0   # no regularization; placeholder so sweep subdir resolves correctly

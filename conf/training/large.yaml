@@ -1,0 +1,19 @@
+# Training config for large datasets (Folktables, Diabetes).
+# Reduces max_epochs and increases batch_size to keep wall-clock time reasonable.
+# The fairness loss full-dataset forward pass dominates cost at >100K rows.
+hidden_dims:
+  - 64
+  - 32
+dropout: 0.2
+lr: 0.001
+patience: 10
+max_epochs: 80
+batch_size: 1024
+max_grad_norm: 1.0
+bce_warmup_epochs: 0
+joint_checkpoint_mode: val_bce
+joint_bce_guard_rel_tol: 0.05
+joint_bce_guard_min_lambd: 0.0
+fairness_ramp_epochs: 0
+fairness_ramp_shape: linear
+fairness_ramp_min_lambd: 0.0

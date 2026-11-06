@@ -1,0 +1,7 @@
+_target_: asbr.methods.sp_penalty.EOPenaltyMethod
+name: EO-Penalty-TwoPhase
+trainer: two_phase
+lambd: 100.0   # top-level for sweep subdir; also mirrored into asbr.lambd for the method
+asbr:
+  lambd: ${..lambd}
+  use_size_weight: false

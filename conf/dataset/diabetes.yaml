@@ -1,0 +1,6 @@
+_target_: asbr.data.DiabetesDataset
+name: diabetes
+n_pos: 10000      # "<30" early readmission (all available: ~11K)
+n_neg: 10000      # ">30" late readmission sampled from ~35K
+random_state: 42
+intersection_level: 3

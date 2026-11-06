@@ -1,0 +1,4 @@
+_target_: asbr.data.CelebADataset
+name: celeba
+features_dir: data/celeba/features
+intersection_level: 3

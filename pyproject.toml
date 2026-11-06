@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asbr"
+version = "0.1.0"
+description = "Adaptive Significance-Based Regularization for intersectional fairness"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "scipy>=1.11",
+    "matplotlib>=3.7",
+    "seaborn>=0.13",
+    "tqdm>=4.65",
+]
+
+[project.optional-dependencies]
+baselines = [
+    "fairlearn>=0.9",
+    "xgboost>=2.0",
+    "fairret>=0.1",
+]
+datasets = [
+    "folktables>=0.0.12",
+]
+experiments = [
+    "hydra-core>=1.3",
+    "omegaconf>=2.3",
+]
+dev = [
+    "pytest>=7.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

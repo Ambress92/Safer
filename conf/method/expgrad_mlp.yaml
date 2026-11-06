@@ -1,0 +1,6 @@
+_target_: asbr.methods.expgrad.ExponGradMLPMethod
+name: ExponGrad-MLP
+mlp_max_epochs: 20
+epsilon: 0.02
+max_iter: 50
+nu: 1.0e-6
